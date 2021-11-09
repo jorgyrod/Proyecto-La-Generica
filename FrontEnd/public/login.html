@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://bootswatch.com/5/lux/bootstrap.min.css">
+</head>
+<body>
+	<div class="container">
+		<div class="row text-center justify-content-around">
+			<div class="col-lg-4">
+				<div class="card shadow mt-5 mb-3">
+					<div class="card-header text-center">
+						<p class="h4 mt-2">Acceso al Sistema</p>
+					</div>
+					<form action="/producto" method="post">
+						<div class="card-body text-start">
+							<div class="form-group">
+								<label class="col-form-label">Usuario</label>
+								<input type="text" class="form-control" id="txtUsuario" name="txtUsuario" required>
+							</div>
+							<div class="form-group">
+								<label class="col-form-label">Password</label>
+								<input type="text" class="form-control" id="pswPassword" name="txtPassword" required>
+							</div>
+						</div>
+						<div class="card-footer text-start mt-2 mb-2">
+							<input type="submit" class="btn btn-outline-success btn mt-1" value="Aceptar">
+							<input type="reset" class="btn btn-outline-primary btn mt-1" value="Cancelar">
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

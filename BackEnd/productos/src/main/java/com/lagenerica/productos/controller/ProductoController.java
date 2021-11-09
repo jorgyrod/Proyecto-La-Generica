@@ -21,7 +21,7 @@ import com.lagenerica.productos.model.Productos;
 import com.lagenerica.productos.repository.IProductosRepository;
 
 //Para que solo se pueda acceder mediante este puerto
-@CrossOrigin(origins = "http://localhost:8081")
+@CrossOrigin("*")
 //Controlador API REST
 @RestController
 //Mapeo de direccion
