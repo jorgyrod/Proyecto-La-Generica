@@ -33,7 +33,6 @@ public class ProductoController {
 	
 	@PostMapping("/producto")
 	public ResponseEntity<List<Productos>>subirArchivo(@RequestParam("file") MultipartFile file){
-		System.out.println("Entramos a la carga de archivos");
 		try {
 			List<Productos> listaProductos = CSVProducto.csvProductos(file.getInputStream());
 			productoRepository.saveAll(listaProductos);

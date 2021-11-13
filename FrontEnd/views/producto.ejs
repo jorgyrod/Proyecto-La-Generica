@@ -1,0 +1,16 @@
+<script>
+    const link = document.getElementById("linkProductos");
+    link.classList.add("active");
+</script>
+<div class="container">
+    <div class="row align-items-center mt-4 text-center justify-content-center">
+        <div class="col-lg-7">
+            <form action="/productos/subirCSV" method="post" class="form-group" enctype="multipart/form-data" id="form-archivo">
+                <label for="formFile" class="form-label mt-4">Nombre del Archivo</label>
+                <input class="form-control" type="file" id="formFile" name="producto" required>
+                <button class="btn btn-success mt-3" type="submit" id="btnSubir" disabled>Cargar</button>
+            </form>
+        </div>
+    </div>
+</div>
+<script src="/js/productos.js"></script>
