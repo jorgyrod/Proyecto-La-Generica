@@ -1,0 +1,64 @@
+
+<script>
+    const link = document.getElementById("linkProveedores");
+    link.classList.add("active");
+</script>
+    <div class="container mt-3">
+        <div class="row justify-content-center" role="tablist">
+            <div class="col-lg-6">
+                <div class="card shadow">
+                    <div class="card-header text-center">
+                        <p class="h2 mt-3">Información de Proovedores</p>
+                    </div>
+                    <form id="form" action="" method="POST">
+                        <input type="hidden" name="_method" value="POST" id="metodo">
+                        <div class="card-body">
+                            <div class="form" role="form" autocomplete="off">
+                                <div class="form-group">
+                                    <div class="form-floating mb-3">
+                                        <input type="text" class="form-control" id="floatingInput" placeholder="Nit" name="nit">
+                                        <label for="floatingInput">Nit</label>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="form-floating mb-3">
+                                        <input type="text" class="form-control" id="floatingInput"
+                                            placeholder="Nombre Completo" name="nombre">
+                                        <label for="floatingInput">Nombre Proveedor</label>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="form-floating mb-3">
+                                        <input type="text" class="form-control" id="floatingInput" placeholder="Dirección" name="direccion">
+                                        <label for="floatingInput">Dirección</label>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="form-floating mb-3">
+                                        <input type="text" class="form-control" id="floatingInput" placeholder="Teléfono" name="telefono">
+                                        <label for="floatingInput">Teléfono</label>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="form-floating mb-3">
+                                        <input type="text" class="form-control" id="floatingInput"
+                                            placeholder="Ciudad" name="ciudad">
+                                        <label for="floatingInput">Ciudad</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group mb-5">
+                            <div class="col-lg-12 text-center">
+                                <input type="submit" class="btn btn-outline-info" value="Consultar" id="consultar">
+                                <input type="submit" class="btn btn-outline-success" value="Crear" id="crear">
+                                <input type="submit" class="btn btn-outline-warning" value="Actualizar" id="actualizar">
+                                <input type="submit" class="btn btn-outline-danger" value="Borrar" id="borrar">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="/js/validacionProveedor.js"></script>

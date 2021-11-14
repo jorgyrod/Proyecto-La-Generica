@@ -1,9 +1,12 @@
 const express = require('express');
 const path = require('path');
 const bodyParser = require('body-parser');
+
 const clientes = require('./routes/clientes');
 const login = require('./routes/login');
 const productos = require('./routes/producto');
+const proveedores = require('./routes/proveedores');
+
 const methodOVerride = require('express-method-override');
 const partials = require('express-partials');
 const app = express();
@@ -18,6 +21,7 @@ app.use(methodOVerride('_method'));
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/',login);
+app.use('/proveedores', proveedores);
 app.use('/productos',productos);
 app.use('/clientes',clientes);
 
