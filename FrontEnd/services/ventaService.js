@@ -2,24 +2,43 @@ const http = require('http');
 
 //Parametros genericos de la api RestFul
 const host = 'localhost';
-const port = '8090';
-var path = '/api/clientes'
+const port = '7000';
+var path = '/api/ventas'
 
+exports.cargarId = function(next){
+    path += '/IdCuenta';
+    const options = {
+        host: host,
+        port: port,
+        path: path,
+        method: 'GET',
+    };
+
+    invocarServicio(options, null, function(venta, err) {
+        if(err){
+            next(null, err);
+        }else{
+            next(venta, null);
+        }
+    })
+
+}
 /*
-    Funcion encargada de crear el cliente
-    - Recibe como parametro un objeto javascript llamado cliente
+    Funcion encargada de crear la venta
+    - Recibe como parametro un objeto javascript llamado venta
     - Recibe como parametro un callback
 
     Un callback es una funcion que recibe como parametro otra funcion y la ejecuta
 */ 
-exports.crearCliente = function(cliente,next){
-    //Cargamos en forma de objeto JSON los datos del cliente
-    const clienteData = JSON.stringify({
-        "cedula" : cliente.cedula,
-        "nombre" : cliente.nombre,
-        "direccion" : cliente.direccion,
-        "telefono" : cliente.telefono,
-        "email" : cliente.email
+exports.crearVenta = function(venta,next){
+    //Cargamos en forma de objeto JSON los datos del venta
+    const ventaData = JSON.stringify({
+        "cedula_cliente" : venta.cedula,
+        "codigo_venta" : venta.codigoVenta,
+        "detalleVenta" : venta.detalles,
+        "iva_venta" : venta.iva,
+        "total_venta" : venta.total,
+        "valor_venta" : venta.subtotal
     });
 
     //Establecemos los valores de carga para conectarnos a la api
@@ -30,77 +49,24 @@ exports.crearCliente = function(cliente,next){
         method: 'POST',
         headers: {
             "Content-Type": "application/json",
-            "Content-Length": clienteData.length,
+            "Content-Length": ventaData.length,
         }
     };
 
     /*Invocamos el servicio RestFul con las opciones configuradas
         y los datos del cliente
     */
-    invocarServicio(options, clienteData, function(cliente, err) {
+    invocarServicio(options, ventaData, function(venta, err) {
         if(err){
             next(null, err);
         }else{
-            next(cliente, null);
+            next(venta, null);
         }
     })
-};
-
-//Funcion encargada de modificar los datos del cliente
-exports.updateCliente = function(cliente,next){
-    path += '/' + cliente.cedula;
-    //Cargamos en forma de objeto JSON los datos del cliente
-    const clienteData = JSON.stringify({
-        "cedula" : cliente.cedula,
-        "nombre" : cliente.nombre,
-        "direccion" : cliente.direccion,
-        "telefono" : cliente.telefono,
-        "email" : cliente.email
-    });
-
-    //Establecemos los valores de carga para conectarnos a la api
-    const options = {
-        host: host,
-        port: port,
-        path: path,
-        method: 'PUT',
-        headers: {
-            "Content-Type": "application/json",
-            "Content-Length": clienteData.length,
-        }
-    };
-
-    invocarServicio(options, clienteData, function(cliente, err) {
-        if(err){
-            next(null, err);
-        }else{
-            next(cliente, null);
-        }
-    })
-};
-
-//Funcion encargada de buscar al cliente por su id
-exports.loadCliente = function(cedula, next){
-    path += '/' + cedula;
-
-    const options = {
-        host: host,
-        port: port,
-        path: path,
-        method: 'GET',
-    };
-
-    invocarServicio(options, null, function(cliente,err){
-        if(err){
-            next(null, err);
-        } else {
-            next(cliente, null);
-        }
-    });
 };
 
 //Funcion encargada de listar todos los usuarios
-exports.listarClientes = function(next) {
+exports.listarVentas = function(next) {
     const options = {
         host: host,
         port: port,
@@ -108,33 +74,15 @@ exports.listarClientes = function(next) {
         method: 'GET',
     };
 
-    invocarServicio(options, null, function(cliente,err){
+    invocarServicio(options, null, function(venta,err){
         if(err){
             next(null, err);
         } else {
-            next(cliente, null);
+            next(venta, null);
         }
     });
 };
 
-/*
-    Funcion engargada de eliminar un cliente por su cedula
-*/
-exports.deleteCliente = function(cedula, next){
-    path += '/' + cedula;
-    console.log("El path es: ",path);
-    const options = {
-        host: host,
-        port: port,
-        path: path,
-        method: 'DELETE'
-    };
-
-    //En este caso en vez de pasar datos del cliente pasamos null
-    invocarServicio(options, null, function(cliente, err){
-        next(err);
-    });
-};
 
 /**
  * Función encargada de invocar los servicios RESTful y devolver

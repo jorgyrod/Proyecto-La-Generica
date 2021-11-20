@@ -60,6 +60,7 @@ exports.buscarCliente = function(req, res){
             console.log('Error al encontrar el cliente');
         } else {
             console.log('Cliente encontrado: ', cliente);
+            res.send({cliente : cliente});
              //Aqui iria donde vamos a listar el cliente encontrado
              //Aqui iria un mensaje de confirmacion visual al usuario
         }

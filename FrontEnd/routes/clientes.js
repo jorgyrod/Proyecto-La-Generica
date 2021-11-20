@@ -15,7 +15,7 @@ router.get('/', clienteController.cargarFormCliente);
 router.post('/newCliente', clienteController.crearCliente);
 
 //GET - Buscar cliente por cedula (Falta pagina para asignar el cliente)
-//router.get('/:cedula', clienteController.buscarCliente);
+router.get('/:cedula', clienteController.buscarCliente);
 
 //PUT - Actualizar cliente
 router.put('/:cedula', clienteController.actualizarCliente);

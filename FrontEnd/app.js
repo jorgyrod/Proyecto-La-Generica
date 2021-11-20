@@ -6,6 +6,7 @@ const clientes = require('./routes/clientes');
 const login = require('./routes/login');
 const productos = require('./routes/producto');
 const proveedores = require('./routes/proveedores');
+const ventas = require('./routes/ventas');
 
 const methodOVerride = require('express-method-override');
 const partials = require('express-partials');
@@ -24,6 +25,7 @@ app.use('/',login);
 app.use('/proveedores', proveedores);
 app.use('/productos',productos);
 app.use('/clientes',clientes);
+app.use('/ventas', ventas);
 
 
 app.listen(3000, ()=>{

@@ -1,14 +1,15 @@
 
+
 exports.cargarFormProducto = function(req,res){
     res.render('producto');
 };
 
 exports.subirArchivoCSV = function(req,res){
     console.log("Entramos al subirArchivoCSV");
-    const input = req.body.producto;
+    const input = req.body.formFile;
     console.log("Input: ", input);
-        var files = input.files;
-        subirArchivo(files[0]);
+        //var files = input.files;
+        subirArchivo(input);
 };
 
 //Posibilidad de esta funcion pasarla a la carpeta service

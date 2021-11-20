@@ -1,0 +1,101 @@
+<script>
+    const link = document.getElementById("linkVentas");
+    link.classList.add("active");
+    const cedula = document.getElementById("cedula");
+    const form1 = document.getElementById("form1");
+    form1.action = "/clientes/" + cedula.value;
+</script>
+<form id="form" action="" method="">
+    <input type="hidden" name="_method" value="" id="metodo">
+    <div class="container-fluid mt-3">
+        <div class="row justify-content-center">
+            <div class="col-lg-10">
+                <div class="card shadow">
+                    <div class="card-body">
+                        <form class="form row lg-3" action="" method="get" role="form" id="form1" autocomplete="off"><!--Form 1-->
+                            <div class="col-lg-5">
+                                <label class="form-label">Cédula</label>
+                                <div class="input-group mb-3">
+                                    <input type="text" class="form-control" name="nmbCedulaCliente" placeholder="Cédula" aria-label="Cédula"
+                                        aria-describedby="button-addon2" id="cedula">
+                                    <input type="submit" class="btn btn-info" value="Consultar">
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
+                                <label class="form-label">Cliente</label>
+                                <input type="text" name="txtNombreCliente" class="form-control" disabled>
+                            </div>
+                            <div class="col-lg-1">
+                                <label class="form-label">Consec.</label>
+                                <input type="text" name="txtConsec" class="form-control" disabled value="<%= venta + 1 %>">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-around">
+            <div class="col-lg-10">
+                <div class="card shadow">
+                    <div class="card-body">
+                        <form class="form row lg-3" action="#" role="form" id="form1" autocomplete="off"><!--Form 2-->
+                            <div id="contenedor">
+                                <div class="row">
+                                    <div class="col-lg-3">
+                                        <label class="form-label">Código Producto</label>
+                                        <div class="input-group mb-3">
+                                            <input type="text" class="form-control" name="codigoProducto" placeholder="Código">
+                                            <input type="button" class="btn btn-info" id="btnConsultar1" value="Consultar">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3">
+                                        <label class="form-label">Nombre Producto</label>
+                                        <input type="text" name="nombreProducto" class="form-control" disabled>
+                                    </div>
+                                    <div class="col-lg-2">
+                                        <label class="form-label">Cantidad.</label>
+                                        <input type="number" name="cantidad" class="form-control" min="1" value="1">
+                                    </div>
+                                    <div class="col-lg-2">
+                                        <label class="form-label">Valor Total</label>
+                                        <input type="number" name="valorTotal" class="form-control" disabled>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mt-2 justify-content-around">
+                                <input type="button" class="btn btn-info btn-sm col-1" id="btnAgregar" value="+">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-lg-10">
+                <div class="card shadow">
+                    <div class="card-body">
+                        <form class="form row lg-3" action="#" role="form" id="form3" autocomplete="off"><!--Form 3-->
+                            <div class="col-lg-2">
+                                <label class="form-label">Total Venta</label>
+                                <input type="text" class="form-control" name="totalVenta" disabled>
+                            </div>
+                            <div class="col-lg-2">
+                                <label class="form-label">Total Iva</label>
+                                <input type="text" class="form-control" name="totalIva" disabled>
+                            </div>
+                            <div class="col-lg-2">
+                                <label class="form-label">Total con Iva</label>
+                                <input type="text" class="form-control" name="totalConIva" disabled>
+                            </div>
+                            <div class="row mt-4 justify-content-around">
+                                <input type="submit" class="btn btn-info col-auto" id="btnConfirmar" value="Confirmar">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+<script type="text/javascript" src="/js/ventas.js"></script>
+<script type="text/javascript" src="/js/validacionVentas.js"></script>
