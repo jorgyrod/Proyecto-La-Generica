@@ -1,0 +1,31 @@
+<div>
+  <div class="row g-0">
+      <div class="col-lg-7 d-none d-lg-block">
+        <img src="./assets/img-2.jpg" class="w-100 h-100" style="background-size: cover;">
+      </div>
+      <div class="col-lg-5 bg-dark d-flex flex-column align-items-end min-vh-100">
+          <div class="px-lg-5 pt-lg-4 pb-lg-3 p-4 mb-auto w-100">
+            <div class="carrito">
+              <img src="./assets/carrito.png" id="carrito"class="img-fluid animate__animated animate__lightSpeedInRight" />
+            </div>
+              
+          </div>
+          <div class="align-self-center w-100 px-lg-5 py-lg-4 p-4">
+          <h1 class="font-weight-bold mb-4 animate__animated animate__flipInX text-light animate__delay-1s">Bienvenido...</h1>
+          <form class="mb-5" [formGroup]="form" (ngSubmit)="onSubmit()">
+              <div class="mb-4">
+                <label for="exampleInputEmail1" class="form-label font-weight-bold text-light">Usuario</label>
+                <input type="email" class="form-control bg-dark-x border-0 text-light bg-dark" id="exampleInputEmail1" 
+                placeholder="Ingresa tu usuario" aria-describedby="emailHelp" formControlName="userName" required>
+              </div>
+              <div class="mb-4">
+                <label for="exampleInputPassword1" class="form-label font-weight-bold text-light">Contraseña</label>
+                <input type="password" class="form-control bg-dark-x border-0 mb-2 text-light bg-dark" placeholder="Ingresa tu contraseña" 
+                id="exampleInputPassword1" formControlName="password" required>
+              </div>
+              <button type="submit" class="btn btn-warning w-100">Iniciar sesión</button>
+            </form>
+      </div>
+  </div>
+</div>
+</div>

@@ -1,0 +1,62 @@
+<div class="container mt-5">
+    <div class="row justify-content-around" >
+        <div class="col-auto">
+            <button (click)="clientes()" class="btn btn-dark" style="height: 3rem; font-size: 20px;">Listado de Clientes</button>
+        </div>
+        <div class="col-auto">
+            <button (click)="listdoVentaCliente()" class="btn btn-dark" style="height: 3rem; font-size: 20px;">Ventas por Clientes</button>                
+        </div>
+    </div>
+
+    <div class="container mt-5" *ngIf="boolClientes">
+        <div class="row text-center">
+            <p class="display-6">Total de Clientes</p>
+        </div>
+        <div class="row align-items-center mt-4 text-center justify-content-center">
+            <table class="table table-striped">
+                <thead class="text-light bg-dark">
+                    <tr>
+                        <th scope="col">Cedula</th>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Direccion</th>
+                        <th scope="col">Telefono</th>
+                        <th scope="col">Email</th>
+                    </tr>
+                </thead>
+                <tbody *ngFor="let cliente of listadoClientes">
+                    <tr>
+                        <th scope="row">{{cliente.cedula}}</th>
+                        <td>{{cliente.nombre}}</td>
+                        <td>{{cliente.email}}</td>
+                        <td>{{cliente.direccion}}</td>
+                        <td>{{cliente.email}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="container mt-5" *ngIf="bool">
+        <div class="row text-center">
+            <p class="display-6">Total de ventas por ciudad</p>
+        </div>
+        <div class="row align-items-center mt-4 text-center justify-content-center" >
+            <table class="table table-striped">
+                <thead class="text-light bg-dark">
+                    <tr>
+                        <th scope="col">Cedula</th>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Valor Total Ventas</th>
+                    </tr>
+                </thead>
+                <tbody *ngFor="let venta of lista">
+                    <tr>
+                        <th scope="row">{{venta.cedula}}</th>
+                        <td>{{venta.nombre}}</td>
+                        <td>${{venta.totalVenta}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    
+</div>

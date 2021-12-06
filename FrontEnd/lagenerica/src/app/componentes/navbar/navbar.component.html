@@ -1,0 +1,38 @@
+<nav class="navbar navbar-expand-lg navbar-mainbg" *ngIf="isLoggedIn$ | async as isLoggedIn">
+  <a class="navbar-brand navbar-logo" href="#">La Generica</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <i class="fas fa-bars text-white"></i>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav ml-auto">
+      <div class="hori-selector">
+        <div class="left"></div>
+        <div class="right"></div>
+      </div>
+      <li class="nav-item active">
+        <a class="nav-link" [routerLink]="'home'"><i class="fas fa-shopping-basket"></i>Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="'productos'"><i class="fas fa-shopping-basket"></i>Productos</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="'clientes'"><i class="far fa-address-book"></i>Clientes</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="'proveedores'"><i class="fas fa-shipping-fast"></i>Proveedores</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="'ventas'"><i class="far fa-calendar-alt"></i>Ventas</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="'reportes'"><i class="far fa-chart-bar"></i>Reportes</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="'consolidado'"><i class="far fa-copy"></i>Consolidado</a>
+      </li>
+    </ul>
+  </div>
+  <button type="button" class="btn btn-danger" style="margin-right: 10px;" 
+  (click)="onLogout()" *ngIf="isLoggedIn">Logout</button>
+</nav>

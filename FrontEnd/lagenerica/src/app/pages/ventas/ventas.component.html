@@ -1,0 +1,148 @@
+<div class="container-fluid mt-4 vh-100">
+    <div class="row justify-content-center">
+        <div class="col-lg-10">
+            <div class="card shadow">
+                <div class="card-body">
+                    <div class="form row lg-3"><!--Form 1-->
+                        <div class="col-lg-4">
+                            <label class="form-label">Cédula</label>
+                            <div class="input-group mb-3">
+                                <input type="text" class="form-control" name="nmbCedulaCliente" placeholder="Cédula" aria-label="Cédula"
+                                    aria-describedby="button-addon2" [(ngModel)]="cedulaCliente" value="{{cedulaCliente}}">
+                                <input type="button" (click)="getCliente()" class="btn btn-info" value="Consultar" />
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <label class="form-label">Cliente</label>
+                            <input type="text" name="txtNombreCliente" class="form-control" value="{{nombreCliente}}" disabled>
+                        </div>
+                        <div class="col-lg-2">
+                            <label class="form-label">Consec.</label>
+                            <input type="text" name="txtConsec" class="form-control" value="{{consecutivo}}"disabled>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row justify-content-around">
+        <div class="col-lg-10">
+            <div class="card shadow">
+                <div class="card-body">
+                    <div class="form row lg-3 " action="#" role="form" id="form1" autocomplete="off"><!--Form 2-->
+                        <div id="contenedor ">
+                            <div class="row">
+                                <div class="col-lg-3">
+                                    <label class="form-label">Código Producto</label>
+                                    <div class="input-group mb-3">
+                                        <input type="text" class="form-control" name="codigoProducto" [(ngModel)]="codigoProducto1" value="{{codigoProducto1}}" placeholder="Código">
+                                        <input type="button" (click)="buscarProducto1()" class="btn btn-info" value="Consultar">
+                                    </div>
+                                </div>
+                                <div class="col-lg-3">
+                                    <label class="form-label">Nombre Producto</label>
+                                    <input type="text" name="nombreProducto" class="form-control" value="{{producto1.nombre}}" disabled>
+                                </div>
+                                <div class="col-lg-2">
+                                    <label class="form-label">Cantidad.</label>
+                                    <input type="number" name="cantidad" class="form-control" min="1" value="1" [(ngModel)]="cantidadProducto1">
+                                </div>
+                                <div class="col-lg-2 ">
+                                    <label class="form-label">-</label>
+                                    <input type="button" (click)="precioProducto1()" class="btn btn-dark form-control" value="Calcular">
+                                </div>
+                                <div class="col-lg-2">
+                                    <label class="form-label">Valor Total</label>
+                                    <input type="number" name="valorTotal" class="form-control" value="{{detalleProducto1.valor_Venta}}" disabled>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form row lg-3 " action="#" role="form" id="form1" autocomplete="off"><!--Form 2-->
+                        <div id="contenedor ">
+                            <div class="row">
+                                <div class="col-lg-3">
+                                    <label class="form-label">Código Producto</label>
+                                    <div class="input-group mb-3">
+                                        <input type="text" class="form-control" name="codigoProducto" [(ngModel)]="codigoProducto2" value="{{codigoProducto2}}" placeholder="Código">
+                                        <input type="button" (click)="buscarProducto2()" class="btn btn-info" id="btnConsultar1" value="Consultar">
+                                    </div>
+                                </div>
+                                <div class="col-lg-3">
+                                    <label class="form-label">Nombre Producto</label>
+                                    <input type="text" name="nombreProducto" class="form-control" value="{{producto2.nombre}}" disabled>
+                                </div>
+                                <div class="col-lg-2">
+                                    <label class="form-label">Cantidad.</label>
+                                    <input type="number" name="cantidad" class="form-control" min="1" value="1" [(ngModel)]="cantidadProducto2">
+                                </div>
+                                <div class="col-lg-2 ">
+                                    <label class="form-label">-</label>
+                                    <input type="button" (click)="precioProducto2()" class="btn btn-dark form-control" value="Calcular">
+                                </div>
+                                <div class="col-lg-2">
+                                    <label class="form-label">Valor Total</label>
+                                    <input type="number" name="valorTotal" class="form-control" value="{{detalleProducto2.valor_Venta}}" disabled>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form row lg-3 " action="#" role="form" id="form1" autocomplete="off"><!--Form 2-->
+                        <div id="contenedor ">
+                            <div class="row">
+                                <div class="col-lg-3">
+                                    <label class="form-label">Código Producto</label>
+                                    <div class="input-group mb-3">
+                                        <input type="text" class="form-control" name="codigoProducto" [(ngModel)]="codigoProducto3" value="{{codigoProducto3}}" placeholder="Código">
+                                        <input type="button" (click)="buscarProducto3()" class="btn btn-info" id="btnConsultar1" value="Consultar">
+                                    </div>
+                                </div>
+                                <div class="col-lg-3">
+                                    <label class="form-label">Nombre Producto</label>
+                                    <input type="text" name="nombreProducto" class="form-control" value="{{producto3.nombre}}" disabled>
+                                </div>
+                                <div class="col-lg-2">
+                                    <label class="form-label">Cantidad.</label>
+                                    <input type="number" name="cantidad" class="form-control" min="1" value="1" [(ngModel)]="cantidadProducto3">
+                                </div>
+                                <div class="col-lg-2 ">
+                                    <label class="form-label">-</label>
+                                    <input type="button" (click)="precioProducto3()" class="btn btn-dark form-control" value="Calcular">
+                                </div>
+                                <div class="col-lg-2">
+                                    <label class="form-label">Valor Total</label>
+                                    <input type="number" name="valorTotal" class="form-control" value="{{detalleProducto3.valor_Venta}}" disabled>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-lg-10">
+            <div class="card shadow">
+                <div class="card-body">
+                    <div class="form row lg-3 justify-content-around" action="#" role="form" id="form3" autocomplete="off"><!--Form 3-->
+                        <div class="col-lg-2">
+                            <label class="form-label">Total Venta</label>
+                            <input type="number" class="form-control" name="totalVenta" [(ngModel)]="subtotal"  value="{{subtotal}}" disabled>
+                        </div>
+                        <div class="col-lg-2">
+                            <label class="form-label">Total Iva</label>
+                            <input type="number" class="form-control" name="totalIva" [(ngModel)]="ivaventa" value="{{ivaventa}}" disabled>
+                        </div>
+                        <div class="col-lg-2">
+                            <label class="form-label">Total con Iva</label>
+                            <input type="number" class="form-control" name="totalConIva" [(ngModel)]="totalventa" value="{{totalventa}}" disabled>
+                        </div>
+                        <div class="row mt-4 justify-content-around">
+                            <input type="submit" (click)="confirmacion()" class="btn btn-info col-auto" id="btnConfirmar" value="Confirmar">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

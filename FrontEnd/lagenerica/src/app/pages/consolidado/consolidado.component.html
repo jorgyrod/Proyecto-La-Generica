@@ -1,0 +1,31 @@
+<div class="container mt-5">
+    <div class="row text-center">
+        <p class="display-6">Total de ventas por ciudad</p>
+    </div>
+    <div class="row">
+        <div class="col">
+            <table class="table table-responsive table-hover">
+                <thead class="table-dark text-light bg-dark align-items-center" style="height: 3rem; font-size: 20px;">
+                    <th>Ciudad</th>
+                    <th>Valor total ventas</th>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let ciudad of consolidado">
+                        <td>{{ciudad.nombre}}</td>
+                        <td>{{ciudad.total}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="row justify-content-right mt-5">
+        <div class="col-lg-4">
+            <div class="form-group">
+                <fieldset disabled="">
+                    <label class="form-label">Total ventas tienda </label>
+                    <input class="form-control" type="text" [(ngModel)]="totalTienda" value="{{totalTienda}}" disabled>
+                </fieldset>
+            </div>
+        </div>
+    </div>
+</div>

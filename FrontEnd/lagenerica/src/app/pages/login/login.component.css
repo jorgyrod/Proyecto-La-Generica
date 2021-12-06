@@ -1,0 +1,25 @@
+
+.btn {
+    min-height: 3.125rem;
+    font-weight: 600;
+}
+
+.form-control {
+    min-height: 3.125rem;
+    line-height: initial;
+}
+.form-control:focus {
+    background-color: #1E2126; 
+    outline: none;
+}
+
+.carrito{
+    width: 40%;
+    margin: auto;
+}
+
+#carrito{
+    --animate-duration: 4s;
+}
+
+
