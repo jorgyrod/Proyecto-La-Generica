@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 import lagenericatienda.ventas.model.Ventas;
 import lagenericatienda.ventas.repository.IVentasRepository;
 
-@CrossOrigin(origins = "http://localhost:8081")
+@CrossOrigin("*")
 @RestController
 @RequestMapping("/api")
 

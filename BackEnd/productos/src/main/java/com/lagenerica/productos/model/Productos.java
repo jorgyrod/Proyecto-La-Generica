@@ -21,7 +21,6 @@ public class Productos {
 	  
 	public Productos(int idproducto, String nombreproducto, int nitproveedor, double preciocompra, double ivacompra,
 			double precioventa) {
-		super();
 		this.idproducto = idproducto;
 		this.nombreproducto = nombreproducto;
 		this.nitproveedor = nitproveedor;

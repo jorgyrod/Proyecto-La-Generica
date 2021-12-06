@@ -8,15 +8,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.multipart.MultipartFile;
 
-import com.lagenerica.productos.model.CSVProducto;
+
 import com.lagenerica.productos.model.Productos;
 import com.lagenerica.productos.repository.IProductosRepository;
 
@@ -32,13 +32,16 @@ public class ProductoController {
 	IProductosRepository productoRepository;
 	
 	@PostMapping("/producto")
-	public ResponseEntity<List<Productos>>subirArchivo(@RequestParam("file") MultipartFile file){
+	public ResponseEntity<Productos>subirArchivo(@RequestBody Productos producto){
 		try {
-			List<Productos> listaProductos = CSVProducto.csvProductos(file.getInputStream());
-			productoRepository.saveAll(listaProductos);
+			Productos newProducto = new Productos(producto.getIdproducto(),producto.getNombreproducto(),
+										producto.getNitproveedor(),producto.getPreciocompra(),
+										producto.getIvacompra(),producto.getPrecioventa());
+			
+			productoRepository.save(newProducto);
 			
 			//Le pasamos la lista y el codigo de estatus http que fue creado
-			return new ResponseEntity<>(listaProductos, HttpStatus.CREATED);
+			return new ResponseEntity<>(newProducto, HttpStatus.CREATED);
 		}catch(Exception e) {
 			//En caso de error, devuelve una lista nula y el error interno
 			return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
@@ -76,5 +79,16 @@ public class ProductoController {
 			//Retornamos un codigo de estado que no se encontro
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		}
+	}
+	
+	@DeleteMapping("/producto")
+	public ResponseEntity<HttpStatus> eliminarProductos(){
+		try {
+			productoRepository.deleteAll();
+			return new ResponseEntity<>(HttpStatus.OK); 
+	  } catch (Exception e) {
+		    return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+		  }
+
 	}
 }

@@ -22,7 +22,7 @@ import tiendalagenerica.proveedores.model.Proveedores;
 import tiendalagenerica.proveedores.repository.ProveedorRepository;
 
 
-@CrossOrigin(origins = "http://localhost:8081")
+@CrossOrigin("*")
 @RestController
 @RequestMapping("/api")
 

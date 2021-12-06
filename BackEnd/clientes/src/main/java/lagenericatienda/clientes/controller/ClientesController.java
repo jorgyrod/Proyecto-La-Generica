@@ -23,7 +23,7 @@ import lagenericatienda.clientes.repository.ClientesRepository;
 
 
 
-@CrossOrigin(origins = "http://localhost:8081")
+@CrossOrigin("*")
 @RestController
 @RequestMapping("/api")
 
