@@ -11,7 +11,7 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 export class ConsolidadoComponent implements OnInit {
 
   //Cargamos el listado de Ventas
-  urlApiVentas : string = "http://localhost:7000/api/ventas";
+  urlApiVentas : string = "http://localhost:8110/api/ventas";
   res : any;
   bool : boolean = false;
   contenidoVentas : any;
